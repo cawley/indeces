@@ -1,0 +1,33 @@
+import java.util.*;
+public class DocumentIndex extends ArrayList<IndexEntry>{
+  private String word;
+   private ArrayList<String> numsList;
+  public DocumentIndex(String word, ArrayList<Integer> numsList){
+    super();
+    word = word;
+    numsList = numsList;
+  }
+  public void addword(String word, int num){
+    String a = word;
+    int b = num;
+    IndexEntry.add(b);
+    if(numsList.contains(word)){
+      for(int i = 0; i < numsList.size(); i++){
+        if(numsList.get(i).compareTo(word) > 0){
+          numsList.add(i, word);
+        }
+      }
+      
+    }
+  }
+  public void addAllWords(String str, int num){
+   String a = "";
+    for(int i = 0; i < str.length(); i++){
+      if(Character.isDigit(str.charAt(i))){
+       a = str.substring(0, i-1);
+      addword(a, num);
+      }
+    }  
+  }
+  
+}
